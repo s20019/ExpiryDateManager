@@ -1,4 +1,4 @@
-package jp.ac.it_college.std.s20019.expirydatemanager2
+package jp.ac.it_college.std.s20019.expirydatemanager2.fragment
 
 import android.graphics.Color
 import android.os.Bundle
@@ -13,6 +13,10 @@ import com.google.android.material.snackbar.Snackbar
 import io.realm.Realm
 import io.realm.kotlin.createObject
 import io.realm.kotlin.where
+import jp.ac.it_college.std.s20019.expirydatemanager2.ConfirmDialog
+import jp.ac.it_college.std.s20019.expirydatemanager2.DateDialog
+import jp.ac.it_college.std.s20019.expirydatemanager2.ExpiryDate
+import jp.ac.it_college.std.s20019.expirydatemanager2.activity.MainActivity
 import jp.ac.it_college.std.s20019.expirydatemanager2.databinding.FragmentExpiryDateEditBinding
 import java.lang.IllegalArgumentException
 import java.text.ParseException

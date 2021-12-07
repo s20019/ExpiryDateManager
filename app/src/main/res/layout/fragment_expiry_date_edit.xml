@@ -5,7 +5,7 @@
     android:id="@+id/ConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ExpiryDateEditFragment" >
+    tools:context=".fragment.ExpiryDateEditFragment" >
 
     <EditText
         android:id="@+id/dateEdit"

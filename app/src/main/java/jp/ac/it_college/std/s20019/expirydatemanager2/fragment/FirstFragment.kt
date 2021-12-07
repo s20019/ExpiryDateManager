@@ -1,4 +1,4 @@
-package jp.ac.it_college.std.s20019.expirydatemanager2
+package jp.ac.it_college.std.s20019.expirydatemanager2.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.realm.Realm
-import io.realm.RealmResults
 import io.realm.Sort
 import io.realm.kotlin.where
+import jp.ac.it_college.std.s20019.expirydatemanager2.ExpiryDate
+import jp.ac.it_college.std.s20019.expirydatemanager2.ExpiryDateAdapter
+import jp.ac.it_college.std.s20019.expirydatemanager2.activity.MainActivity
 import jp.ac.it_college.std.s20019.expirydatemanager2.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {

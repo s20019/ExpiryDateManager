@@ -1,10 +1,10 @@
-package jp.ac.it_college.std.s20019.expirydatemanager2
+package jp.ac.it_college.std.s20019.expirydatemanager2.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
-import io.realm.RealmResults
+import jp.ac.it_college.std.s20019.expirydatemanager2.R
 import jp.ac.it_college.std.s20019.expirydatemanager2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
