@@ -1,0 +1,15 @@
+<resources>
+    <string name="action_settings">設定</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">一覧表示</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="edit_title">編集画面</string>
+    <string name="date_edit_hint">賞味期限(西暦/月/日)</string>
+    <string name="app_name">賞味期限管理アプリ</string>
+    <string name="detail_edit_hint">詳細</string>
+    <string name="bt_date">日付選択</string>
+    <string name="bt_save">保存</string>
+    <string name="bt_delete">削除</string>
+    <string name="title_edit_hint">商品名</string>
+</resources>
