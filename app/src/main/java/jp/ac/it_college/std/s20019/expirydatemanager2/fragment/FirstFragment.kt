@@ -39,7 +39,7 @@ class FirstFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.list.layoutManager = LinearLayoutManager(context)
-        val expirydates = realm.where<ExpiryDate>().findAll().sort("date", Sort.ASCENDING)
+        val expirydates = realm.where<ExpiryDate>().findAll().sort("date", Sort.ASCENDING)  //  最後のsortで、ListViewを日付の昇順で並び替え
         val adapter = ExpiryDateAdapter(expirydates)
         binding.list.adapter = adapter
 

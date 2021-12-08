@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp() =
         findNavController(R.id.nav_host_fragment_content_main).navigateUp()
 
-    // ExpiryDateEditFragmentに遷移した後、fabボタンを非表示にする処理
+    // ExpiryDateEditFragmentに遷移した後、fabボタンを非表示にする時に使う処理
     fun setFabVisible(visibility: Int) {
         binding.fab.visibility = visibility
     }

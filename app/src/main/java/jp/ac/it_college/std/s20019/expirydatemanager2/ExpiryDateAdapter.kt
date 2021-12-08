@@ -27,13 +27,13 @@ class ExpiryDateAdapter(data: OrderedRealmCollection<ExpiryDate>) :
         this.listener = listener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpiryDateAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(android.R.layout.simple_list_item_2, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ExpiryDateAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val expirydate: ExpiryDate? = getItem(position)
         holder.date.text = DateFormat.format("yyyy/MM/dd", expirydate?.date)
         holder.title.text = expirydate?.title

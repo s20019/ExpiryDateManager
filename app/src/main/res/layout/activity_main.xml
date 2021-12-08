@@ -29,6 +29,9 @@
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="16dp"
-        app:srcCompat="@drawable/ic_add" />
+        android:contentDescription="@string/add_text"
+        app:maxImageSize="30dp"
+        app:srcCompat="@drawable/ic_add"
+        tools:ignore="ImageContrastCheck" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

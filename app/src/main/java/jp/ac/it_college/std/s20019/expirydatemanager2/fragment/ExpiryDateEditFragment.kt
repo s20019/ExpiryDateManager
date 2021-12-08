@@ -84,6 +84,7 @@ class ExpiryDateEditFragment : Fragment() {
     // 保存処理
     private fun saveExpiryDate(view: View) {
         when (args.expirydateId) {
+            // 新規登録画面
             -1L -> {
                 realm.executeTransaction { db: Realm ->
                     val maxId = db.where<ExpiryDate>().max("id")
@@ -100,6 +101,7 @@ class ExpiryDateEditFragment : Fragment() {
                     .setActionTextColor(Color.YELLOW)
                     .show()
             }
+            // 編集画面
             else -> {
                 realm.executeTransaction { db: Realm ->
                     val expirydate = db.where<ExpiryDate>().equalTo("id", args.expirydateId).findFirst()
