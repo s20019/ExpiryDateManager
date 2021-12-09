@@ -17,9 +17,11 @@ class ConfirmDialog(private val message: String,
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val builder = AlertDialog.Builder(requireActivity())
         builder.setMessage(message)
+        // ダイアログで「はい」をタップした時の処理
         builder.setPositiveButton(okLabel) { dialog, which ->
             okSelected()
         }
+        // ダイアログで「いいえ」をタップした時の処理
         builder.setNegativeButton(cancelLabel) { dialog, which ->
             cancelSelected()
         }
