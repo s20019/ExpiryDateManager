@@ -1,12 +1,16 @@
 package jp.ac.it_college.std.s20019.expirydatemanager2.fragment
 
 import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.text.Html
 import android.text.format.DateFormat
+import android.text.method.LinkMovementMethod
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
@@ -40,6 +44,7 @@ class ExpiryDateEditFragment : Fragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // IDが登録済みの場合は編集画面（削除ボタンを表示）
@@ -49,6 +54,12 @@ class ExpiryDateEditFragment : Fragment() {
             binding.titleEdit.setText(expirydate?.title)
             binding.detailEdit.setText(expirydate?.detail)
             binding.deleteButton.visibility = View.VISIBLE
+
+            /*
+            binding.linkText.linksClickable = true
+            binding.linkText.setText(Html.fromHtml("<a href=\"https://cookpad.com/search/${binding.titleEdit}を使う料理を見てみる/\"></a>", Html.FROM_HTML_MODE_LEGACY))
+            binding.linkText.movementMethod = LinkMovementMethod.getInstance()
+             */
         }
         // そうでない場合は新規登録（削除ボタンを非表示）
         else {

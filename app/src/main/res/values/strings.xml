@@ -13,4 +13,5 @@
     <string name="title_edit_hint">商品名</string>
     <string name="add_text">追加</string>
     <string name="app_name">ショウミー</string>
+    <string name="link_text">この商品を使う料理を見てみる</string>
 </resources>
