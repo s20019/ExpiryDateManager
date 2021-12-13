@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.annotation.RequiresApi
 import androidx.core.text.HtmlCompat
 import androidx.navigation.fragment.findNavController
@@ -53,22 +54,24 @@ class ExpiryDateEditFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // IDが登録済みの場合は編集画面（削除ボタンを表示）
         if (args.expirydateId != -1L) {
-            binding.linkText.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-            binding.linkText.setOnClickListener {
-                val uri = Uri.parse("https://cookpad.com/search/")
-                val intent = Intent(Intent.ACTION_VIEW, uri)
-                startActivity(intent)
-            }
-
             val expirydate = realm.where<ExpiryDate>().equalTo("id", args.expirydateId).findFirst()
             binding.dateEdit.setText(DateFormat.format("yyyy/MM/dd", expirydate?.date))
             binding.titleEdit.setText(expirydate?.title)
             binding.detailEdit.setText(expirydate?.detail)
             binding.deleteButton.visibility = View.VISIBLE
+
+            val title = expirydate?.title
+            binding.linkText.paintFlags = Paint.UNDERLINE_TEXT_FLAG     // linkTextに下線を引いてリンクっぽくする
+            binding.linkText.setOnClickListener {
+                val uri = Uri.parse("https://cookpad.com/search/${title}")
+                val intent = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(intent)
+            }
         }
         // そうでない場合は新規登録（削除ボタンを非表示）
         else {
             binding.deleteButton.visibility = View.INVISIBLE
+            binding.linkText.visibility = View.INVISIBLE
         }
 
         (activity as? MainActivity)?.setFabVisible(View.INVISIBLE)
