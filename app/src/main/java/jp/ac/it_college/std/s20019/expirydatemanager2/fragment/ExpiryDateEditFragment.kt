@@ -1,6 +1,9 @@
 package jp.ac.it_college.std.s20019.expirydatemanager2.fragment
 
+import android.content.Intent
 import android.graphics.Color
+import android.graphics.Paint
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.text.Html
@@ -11,6 +14,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
+import androidx.core.text.HtmlCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.snackbar.Snackbar
@@ -49,17 +53,18 @@ class ExpiryDateEditFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         // IDが登録済みの場合は編集画面（削除ボタンを表示）
         if (args.expirydateId != -1L) {
+            binding.linkText.paintFlags = Paint.UNDERLINE_TEXT_FLAG
+            binding.linkText.setOnClickListener {
+                val uri = Uri.parse("https://cookpad.com/search/")
+                val intent = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(intent)
+            }
+
             val expirydate = realm.where<ExpiryDate>().equalTo("id", args.expirydateId).findFirst()
             binding.dateEdit.setText(DateFormat.format("yyyy/MM/dd", expirydate?.date))
             binding.titleEdit.setText(expirydate?.title)
             binding.detailEdit.setText(expirydate?.detail)
             binding.deleteButton.visibility = View.VISIBLE
-
-            /*
-            binding.linkText.linksClickable = true
-            binding.linkText.setText(Html.fromHtml("<a href=\"https://cookpad.com/search/${binding.titleEdit}を使う料理を見てみる/\"></a>", Html.FROM_HTML_MODE_LEGACY))
-            binding.linkText.movementMethod = LinkMovementMethod.getInstance()
-             */
         }
         // そうでない場合は新規登録（削除ボタンを非表示）
         else {
