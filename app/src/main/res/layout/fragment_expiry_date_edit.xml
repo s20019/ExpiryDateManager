@@ -102,7 +102,7 @@
         android:focusableInTouchMode="false"
         android:text="@string/link_text"
         android:textAlignment="center"
-        android:textColor="@color/purple_500"
+        android:textColor="#039BE5"
         android:textSize="24sp"
         android:textStyle="bold"
         android:visibility="visible"
