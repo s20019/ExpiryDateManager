@@ -7,20 +7,25 @@
     android:layout_height="match_parent"
     tools:context=".fragment.ExpiryDateEditFragment" >
 
-    <EditText
-        android:id="@+id/dateEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:ems="10"
-        android:hint="@string/date_edit_hint"
-        android:importantForAutofill="no"
-        android:inputType="date"
-        android:textColorHint="#757575"
-        app:layout_constraintBottom_toTopOf="@+id/secondGuideline"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/dateButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/firstGuideline" />
+        app:layout_constraintTop_toTopOf="@+id/firstGuideline">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/dateEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:hint="@string/date_edit_hint"
+            android:inputType="date"
+            android:textColorHint="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
     <EditText
         android:id="@+id/titleEdit"
         android:layout_width="0dp"
@@ -61,13 +66,14 @@
         android:id="@+id/dateButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
         android:text="@string/bt_date"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/dateEdit"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/dateEdit"
-        app:layout_constraintTop_toTopOf="@+id/dateEdit" />
+        app:layout_constraintStart_toEndOf="@+id/textInputLayout"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/saveButton"
@@ -103,7 +109,7 @@
         android:text="@string/link_text"
         android:textAlignment="center"
         android:textColor="#039BE5"
-        android:textSize="24sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/fifthGuideline"
