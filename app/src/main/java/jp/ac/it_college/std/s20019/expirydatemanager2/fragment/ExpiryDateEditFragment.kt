@@ -110,6 +110,13 @@ class ExpiryDateEditFragment : Fragment() {
                     if (date != null) expirydate.date = date
                     expirydate.title = binding.titleEdit.text.toString()
                     expirydate.detail = binding.detailEdit.text.toString()
+
+                    val cl = Calendar.getInstance()     // 日付計算をするためにカレンダー型のインスタンスを生成
+                    cl.time = expirydate.date           // clにdate(賞味期限)を代入
+                    cl.add(Calendar.DATE , -30)         // -30した値が入る
+
+                    expirydate.before30 = cl.time       // before30に賞味期限の30日前の日付が入る
+
                 }
                 Snackbar.make(view, "追加しました", Snackbar.LENGTH_SHORT)
                     .setAction("戻る") { findNavController().popBackStack() }
