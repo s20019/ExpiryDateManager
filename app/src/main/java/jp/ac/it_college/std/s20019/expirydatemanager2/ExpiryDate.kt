@@ -10,5 +10,5 @@ open class ExpiryDate : RealmObject() {
     var date: Date = Date()
     var title: String = ""
     var detail: String = ""
-    var before30:Date = Date()
+    var before30: Date = Date()
 }
