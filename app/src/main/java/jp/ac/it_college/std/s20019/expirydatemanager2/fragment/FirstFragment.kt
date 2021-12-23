@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import io.realm.Realm
 import io.realm.Sort
@@ -37,6 +38,10 @@ class FirstFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // リストに区切り線を入れる処理
+        val dividerItemDecoration = DividerItemDecoration(context, LinearLayoutManager(context).orientation)
+        binding.list.addItemDecoration(dividerItemDecoration)
 
         binding.list.layoutManager = LinearLayoutManager(context)
         val expirydates = realm.where<ExpiryDate>().findAll().sort("date", Sort.ASCENDING)  //  最後のsortで、ListViewを日付の昇順で並び替え
