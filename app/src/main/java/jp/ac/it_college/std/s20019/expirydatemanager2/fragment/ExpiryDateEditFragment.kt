@@ -56,9 +56,9 @@ class ExpiryDateEditFragment : Fragment() {
             binding.detailEdit.setText(expirydate?.detail)
             binding.deleteButton.visibility = View.VISIBLE
 
-            val title = expirydate?.title
             binding.linkText.paintFlags = Paint.UNDERLINE_TEXT_FLAG     // linkTextに下線を引いてリンクっぽくする
             binding.linkText.setOnClickListener {
+                val title = binding.titleEdit.text
                 val uri = Uri.parse("https://cookpad.com/search/${title}")
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 startActivity(intent)
