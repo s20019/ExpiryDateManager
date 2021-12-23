@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 
         val saveRequest = PeriodicWorkRequestBuilder<MyWorker>(
             1, TimeUnit.DAYS,
-                //15, TimeUnit.MINUTES
+                15, TimeUnit.MINUTES
         )
             .setInputData(data)
             .build()
