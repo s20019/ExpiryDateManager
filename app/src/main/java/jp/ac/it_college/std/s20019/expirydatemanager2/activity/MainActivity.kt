@@ -15,8 +15,6 @@ import jp.ac.it_college.std.s20019.expirydatemanager2.ExpiryDate
 import jp.ac.it_college.std.s20019.expirydatemanager2.MyWorker
 import jp.ac.it_college.std.s20019.expirydatemanager2.R
 import jp.ac.it_college.std.s20019.expirydatemanager2.databinding.ActivityMainBinding
-import java.text.ParseException
-import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -75,7 +73,6 @@ class MainActivity : AppCompatActivity() {
             set(Calendar.SECOND , 0)
             set(Calendar.MILLISECOND , 0)
         }.time
-
 
         val db = Realm.getDefaultInstance()
 

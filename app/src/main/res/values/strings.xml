@@ -16,5 +16,5 @@
     <string name="link_text">この商品を使う料理を見てみる</string>
     <string name="date_sample">2021/12/22</string>
     <string name="title_sample">マヨネーズ</string>
-    <string name="information_sample">賞味期限切れ</string>
+    <string name="expired_text">賞味期限切れ</string>
 </resources>
