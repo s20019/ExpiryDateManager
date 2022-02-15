@@ -139,7 +139,7 @@ class ExpiryDateEditFragment : Fragment() {
                         cl.time = expirydate.date           // clにdate(賞味期限)を代入
                         cl.add(Calendar.DATE, -30)          // -30した値が入る
 
-                        expirydate.before30 = cl.time       // before30に賞味期限の30日前の日付が入る
+                        expirydate.before30 = cl.time
                     }
 
                     expirydate?.title = binding.titleEdit.text.toString()
