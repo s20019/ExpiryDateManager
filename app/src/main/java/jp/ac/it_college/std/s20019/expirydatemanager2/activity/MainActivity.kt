@@ -65,8 +65,4 @@ class MainActivity : AppCompatActivity() {
             manager.enqueue(saveRequest)
         }
     }
-
-    private fun etc(){
-
-    }
 }
