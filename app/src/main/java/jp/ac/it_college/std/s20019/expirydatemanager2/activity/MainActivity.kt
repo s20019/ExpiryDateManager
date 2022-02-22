@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         // 画面上部のアクションバーに、戻るボタンを追加する処理
         setupActionBarWithNavController(naviController)
 
-        etc()
+        notification()
 
         binding.fab.setOnClickListener { view ->
             naviController.navigate(R.id.action_to_expirydateEditFragment)
@@ -51,35 +51,22 @@ class MainActivity : AppCompatActivity() {
         binding.fab.visibility = visibility
     }
 
-    private fun notification(s: String) {
-        val data = Data.Builder().apply{
-            putString("key" , s)
-        }.build()
+    private fun notification() {
+        val data = Data.Builder().build()
 
-        val saveRequest = PeriodicWorkRequestBuilder<MyWorker>(
-            1, TimeUnit.DAYS,
-                15, TimeUnit.MINUTES
-        )
-            .setInputData(data)
-            .build()
-        manager.enqueue(saveRequest)
+        if (manager.getWorkInfosByTag("FLAG").get().size == 0) {
+            val saveRequest = PeriodicWorkRequestBuilder<MyWorker>(
+                15, TimeUnit.MINUTES,
+                14, TimeUnit.MINUTES
+            )
+                .addTag("FLAG")
+                .setInputData(data)
+                .build()
+            manager.enqueue(saveRequest)
+        }
     }
 
     private fun etc(){
-        val cl = Calendar.getInstance()
-        val today = cl.apply {
-            set(Calendar.HOUR_OF_DAY , 0)
-            set(Calendar.MINUTE , 0)
-            set(Calendar.SECOND , 0)
-            set(Calendar.MILLISECOND , 0)
-        }.time
 
-        val db = Realm.getDefaultInstance()
-
-        val b30 = db.where<ExpiryDate>().equalTo("before30" , today).findAll().size
-        val OTD = db.where<ExpiryDate>().equalTo("date" , today).findAll().size
-
-        if (b30 != 0) { notification("b30") }
-        if (OTD != 0) { notification("OTD") }
     }
 }
