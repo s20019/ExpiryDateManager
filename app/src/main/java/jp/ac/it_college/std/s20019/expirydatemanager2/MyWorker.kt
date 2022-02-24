@@ -21,15 +21,14 @@ class MyWorker(private val ctx: Context, params: WorkerParameters) : Worker(ctx,
     val notifyDescription = "通知の詳細"
 
     init {
-        val mChannel = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel(id, name, NotificationManager.IMPORTANCE_HIGH)
-        } else {
-            TODO("VERSION.SDK_INT < O")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val mChannel = NotificationChannel(id, name, NotificationManager.IMPORTANCE_HIGH)
+
+            mChannel.apply {
+                description = notifyDescription
+            }
+            notificationManager.createNotificationChannel(mChannel)
         }
-        mChannel.apply {
-            description = notifyDescription
-        }
-        notificationManager.createNotificationChannel(mChannel)
     }
 
     override fun doWork(): Result {
